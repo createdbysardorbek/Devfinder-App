@@ -3,7 +3,6 @@ import classname from 'classnames';
 import PropTypes from 'prop-types';
 import './Main.scss';
 import { Image, Paragraph, Paragraph2, Bio } from './Main.styled';
-import githubImg from './img/github.jpg'
 import Statistics from "../Statistics/Statistics";
 
 
@@ -11,24 +10,33 @@ class Main extends Component {
 
     render() {
 
-        let { dark } = this.props
+        let { dark, name, joinedTime, link, bio, repos, followers, following, location, blog, twitter, company, avatar } = this.props
 
         return (
             <div className={classname('main', { dark: dark })}>
                 <div className="profile">
-                    <Image src={githubImg} />
+                    <Image src={avatar} alt='Not available' />
                     <div className="info">
                         <div>
-                            <Paragraph colorTheme={dark}>The Octocat </Paragraph>
-                            <Paragraph2 colorTheme={dark}>@octocat</Paragraph2>
-                            <Bio colorTheme={dark}>This profile has no bio</Bio>
+                            <Paragraph colorTheme={dark}>{name ? name : 'Not available'}</Paragraph>
+                            <Paragraph2 colorTheme={dark}>@{link ? link : 'Not available'}</Paragraph2>
+                            <Bio colorTheme={dark}>{bio ? bio : 'This profile has no bio'}</Bio>
                         </div>
                         <div>
-                            <Bio colorTheme={dark}>Joined 25 Jan 2011</Bio>
+                            <Bio colorTheme={dark}>{joinedTime ? `Joined ${joinedTime.toString().slice(0, 10)}` : 'Not available'}</Bio>
                         </div>
                     </div>
                 </div>
-                <Statistics darkTheme={dark} />
+                <Statistics
+                    darkTheme={dark}
+                    repos={repos}
+                    followers={followers}
+                    following={following}
+                    location={location}
+                    blog={blog}
+                    twitter={twitter}
+                    company={company}
+                />
             </div>
         )
     }

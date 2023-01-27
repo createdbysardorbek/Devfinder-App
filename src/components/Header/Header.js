@@ -29,7 +29,7 @@ class Header extends Component {
 
 Header.propTypes = {
     dark: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChangeTheme: PropTypes.func.isRequired,
 }
 
 
