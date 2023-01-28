@@ -28,8 +28,6 @@ class App extends Component {
         }
     }
 
-    // https://api.github.com/users
-
     onChangeInfo = (value) => {
         fetch(`https://api.github.com/users/${value}`)
             .then(res => res.json())
